@@ -6,7 +6,7 @@ let apple_tree_upgrade = 0
 let apple_per_second = 0
 
 
-onclick_uppgrade = 10
+onclick_uppgrade = 1
 const display_apple_per_second = document.getElementById("apple_per")
 const display_apple = document.getElementById("Money")/*  */
 console.log(display_apple_per_second)
