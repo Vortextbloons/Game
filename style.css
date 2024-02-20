@@ -1,0 +1,70 @@
+
+body{
+    background-color: gray;
+}
+
+#apple{
+    position: relative;
+    display: block;
+    margin: auto;
+    width: 20%;
+    top: -750px;
+    overflow:auto;
+    padding: none;
+}
+#Money{
+    text-align: center;
+    font-size: 4.5em;
+    text-shadow: 3px 3px 5px lightcoral,-3px -3px 5px lightgoldenrodyellow;
+    margin: 0px;
+}
+.upgrades,button{
+    color: black;
+    size: 1em;
+    display: inline;
+    height: 3em;
+    font-size: 1.3em;
+    background-color: #fbff00b6;
+    transition: background-color 1s ease,1s ease
+}
+.head,h3{
+    font-size: 4em;
+    text-shadow: 3px 3px 4px greenyellow,-3px -3px 5px white;
+    margin-bottom: 0px;
+}
+.stats{
+    display: flexbox;
+    position: relative;
+    left: 1500px;
+    bottom: 200px;
+
+    font-size: 3em;
+    text-shadow: 3px 3px 5px lightblue;
+    list-style: none;
+    padding: none;
+    border: none;
+    
+}
+.inner_stats, li{
+    
+    display: block;
+    font-size: .5em;
+    position: relative;
+    left: -40px;
+    white-space: nowrap;
+}
+h5{
+    text-align: center;
+    font-size: 2em;
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+    text-shadow: 3px 3px 5px gold,-4px -4px 5px white;
+}
+
+.upg:hover{
+    background-color: rgb(224, 47, 255);
+    color: white;
+    font-size: 1.75em;
+    font-weight: bolder;
+}
