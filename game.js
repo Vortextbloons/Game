@@ -80,7 +80,7 @@ function fapple_tree_upgrade() {
     if (apple > apple_tree_price) {
         apple_tree_upgrade += 1
         apple -= apple_tree_price
-        apple_tree_price = price_of_upgrade(apple_tree_price,1.03)
+        apple_tree_price = price_of_upgrade(apple_tree_price,1.025)
         apple_per_second += 1
         display_price_apple_tree_uppgrade.innerText = "Buy Apple Tree $" + format_apple_display(apple_tree_price)
         apple_tree_upgrade += 1
@@ -98,7 +98,7 @@ function fapple_farm_upgrade() {
     if (apple > apple_farm_price) {
         apple_farm_upgrade += 1
         apple -= apple_farm_price
-        apple_farm_price = price_of_upgrade(apple_farm_price,1.05)
+        apple_farm_price = price_of_upgrade(apple_farm_price,1.025)
         apple_per_second += 5
         display_price_apple_farm_uppgrade.innerText = "Buy Apple Farm $" + format_apple_display(apple_farm_price)
         display_apple(apple)
@@ -114,7 +114,7 @@ function fapple_mine_upgrade() {
     if (apple > apple_mine_price) {
         apple_mine_upgrade += 1
         apple -= apple_mine_price
-        apple_mine_price = price_of_upgrade(apple_mine_price,1.05)
+        apple_mine_price = price_of_upgrade(apple_mine_price,1.025)
         apple_per_second += 25
         display_price_apple_mine_uppgrade.innerText = "Buy Apple Mine $" + format_apple_display(apple_mine_price)
         display_apple(apple)
@@ -130,7 +130,7 @@ function fapple_bank_upgrade() {
     if (apple > apple_bank_price) {
         apple_bank_upgrade += 1;
         apple -= apple_bank_price;
-        apple_bank_price = price_of_upgrade(apple_bank_price, 1.075);
+        apple_bank_price = price_of_upgrade(apple_bank_price, 1.025);
         apple_per_second += 125;
         display_price_apple_bank_uppgrade.innerText = "Buy Apple Bank $" + format_apple_display(apple_bank_price);
         display_apple(apple);
@@ -145,7 +145,7 @@ function fapple_church_upgrade() {
     if (apple > apple_church_price) {
         apple_church_upgrade += 1;
         apple -= apple_church_price;
-        apple_church_price = price_of_upgrade(apple_church_price, 1.075);
+        apple_church_price = price_of_upgrade(apple_church_price, 1.025);
         apple_per_second += 1000;
         display_price_apple_church_uppgrade.innerText = "Buy Apple Church $" + format_apple_display(apple_church_price);
         display_apple(apple);
@@ -160,7 +160,7 @@ function fapple_city_upgrade() {
     if (apple > apple_city_price) {
         apple_city_upgrade += 1;
         apple -= apple_city_price;
-        apple_city_price = price_of_upgrade(apple_city_price, 1.075);
+        apple_city_price = price_of_upgrade(apple_city_price, 1.025);
         apple_per_second += 2500;
         display_price_apple_city_uppgrade.innerText = "Buy Apple City $" + format_apple_display(apple_city_price);
         display_apple(apple);
