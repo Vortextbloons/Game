@@ -8,7 +8,7 @@ body{
     display: block;
     margin: auto;
     width: 20%;
-    top: -700px;
+    top: -1000px;
     overflow:auto;
     padding: none;
 }
@@ -18,7 +18,7 @@ body{
     text-shadow: 3px 3px 5px lightcoral,-3px -3px 5px lightgoldenrodyellow;
     margin: 0px;
 }
-.upgrades,button{
+.upg,button{
     color: black;
     size: 1em;
     display: inline;
@@ -33,10 +33,10 @@ body{
     margin-bottom: 0px;
 }
 .stats{
-    display: flexbox;
+    display: inline;
     position: relative;
     left: 1500px;
-    bottom: 200px;
+    bottom: 400px;
 
     font-size: 3em;
     text-shadow: 3px 3px 5px lightblue;
@@ -48,7 +48,7 @@ body{
 .inner_stats, li{
     
     display: block;
-    font-size: .5em;
+    font-size: .75em;
     position: relative;
     left: -40px;
     white-space: nowrap;

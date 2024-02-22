@@ -1,53 +1,173 @@
-let onclick_uppgrade = 1
 let onclick_price = 25
+let apple_bank_price = 125000
+let apple_bank_upgrade = 0
+let onclick_uppgrade = 1
 let apple_tree_price = 250
 let apple = 0
 let apple_tree_upgrade = 0
+let apple_farm_upgrade = 0
+let apple_farm_price = 2500
+let apple_mine_price = 13500
+let apple_mine_upgrade = 0
 let apple_per_second = 0
-
-
-onclick_uppgrade = 1
+let apple_church_price = 1000000
+let apple_church_upgrade = 0
+let apple_city_price = 10000000
+let apple_city_upgrade = 0
 const display_apple_per_second = document.getElementById("apple_per")
-const display_apple = document.getElementById("Money")/*  */
-console.log(display_apple_per_second)
-function apple_per_function(){
+
+function price_of_upgrade(value,muti){
+    value = Math.round(value*muti)
+    return value
+}
+
+function format_apple_display(apple){
+    if(apple >= 1000000000000){
+        return(apple/1000000000000).toFixed(1) +"Tril"
+    }
+    else if(apple >= 1000000000){
+        return(apple/1000000000).toFixed(1) +"Bil"
+    }
+    else if(apple >= 1000000){
+        return(apple/1000000).toFixed(1) +"Mil"
+    }
+    else if(apple >= 1000){
+        return (apple/1000).toFixed(1) + "K"
+    }
+    else{
+        return apple
+    }
+}
+function display_apple(apple){
+    const display_apple = document.getElementById("Money")
+    display_apple.innerText = "You Have" + " " + format_apple_display(apple) + " " + "Apples"
+}
+function apple_per_function() {
+    display_apple_per_second.innerText = "You Get " + format_apple_display(apple_per_second) + " " +"Apple Per Second"
+     
     apple = apple + apple_per_second
-    display_apple.innerText = "You Have " + apple 
+    display_apple(apple)
 }
-function onclick_apple () {
+
+function onclick_apple() {
+
     apple = apple + onclick_uppgrade
-    display_apple.innerText = "You Have " + apple   
+    display_apple(apple)    
 }
-function Fonclick_uppgrade(){ 
+function Fonclick_uppgrade() {
     const display_click_upgrade_stat = document.getElementById("upgrade_stats")
     console.log(display_click_upgrade_stat)
     const display_price_onclick_uppgrade = document.getElementById("click_uppgrade")
     display_click_upgrade_stat.innerText = "You Get " + onclick_uppgrade + " " + "Per Click"
-    if (apple > onclick_price){
+    if (apple >= onclick_price) {
         console.log(onclick_uppgrade)
-        onclick_uppgrade = onclick_uppgrade + 1
-        apple = apple - onclick_price
-        onclick_price = onclick_price * 1.25
-        onclick_price = Math.round(onclick_price)
-        display_apple.innerText = "You Have " + apple 
-        display_price_onclick_uppgrade.innerText = "Buy Click Uppgrade Price $" + onclick_price }}   
-        
-function fapple_tree_upgrade(){
-            const display_apple_tree_upgrade_stat = document.getElementById("apple_upgrade_stat")
-            const display_price_apple_tree_uppgrade = document.getElementById("apple_tree_upgrade")
-            display_apple_tree_upgrade_stat.innerText = "You Have " + apple_tree_upgrade + " " + "Apple Trees"
-            if (apple > apple_tree_price){
-                apple_tree_uppgrade = apple_tree_upgrade + 1
-                apple = apple - apple_tree_price
-                apple_tree_price = apple_tree_price * 1.25
-                apple_tree_price = Math.round(apple_tree_price)
-                display_apple.innerText = "You Have " + apple 
-                apple_per_second = apple_per_second + 1
-                display_price_apple_tree_uppgrade.innerText = "Buy Apple Tree $" +  apple_tree_price
-                console.log(apple_per_second)
-                display_apple_per_second.innerText = "You Get " + apple_per_second + " " + "Per Second"}}
-                apple_tree_upgrade = apple_tree_upgrade + 1
-                display_apple.innerText = "You Have " + apple 
-        
-                
-setInterval(apple_per_function,1000)
+        onclick_uppgrade += 1
+        apple -= onclick_price
+        onclick_price = price_of_upgrade(onclick_price,1.025)
+        display_apple(apple)
+        display_price_onclick_uppgrade.innerText = "Buy Click Uppgrade $" + format_apple_display(onclick_price)
+     
+    }
+    else{
+        alert("Not Even Your Mom's Credit Card Is Enough")
+    }
+}
+
+function fapple_tree_upgrade() {
+    const display_apple_tree_upgrade_stat = document.getElementById("apple_upgrade_stat")
+    const display_price_apple_tree_uppgrade = document.getElementById("apple_tree_upgrade")
+    display_apple_tree_upgrade_stat.innerText = "You Have " + apple_tree_upgrade + " " + "Apple Trees"
+    if (apple > apple_tree_price) {
+        apple_tree_upgrade += 1
+        apple -= apple_tree_price
+        apple_tree_price = price_of_upgrade(apple_tree_price,1.03)
+        apple_per_second += 1
+        display_price_apple_tree_uppgrade.innerText = "Buy Apple Tree $" + format_apple_display(apple_tree_price)
+        apple_tree_upgrade += 1
+        display_apple(apple)
+    }
+    else{
+        alert("Not Even Your Mom's Credit Card Is Enough")
+    }
+}
+
+function fapple_farm_upgrade() {
+    const display_apple_farm_upgrade_stat = document.getElementById("apple_farm_stat")
+    const display_price_apple_farm_uppgrade = document.getElementById("apple_farm_upgrade")
+    display_apple_farm_upgrade_stat.innerText = "You Have " + apple_farm_upgrade + " " + "Apple Farms"
+    if (apple > apple_farm_price) {
+        apple_farm_upgrade += 1
+        apple -= apple_farm_price
+        apple_farm_price = price_of_upgrade(apple_farm_price,1.05)
+        apple_per_second += 5
+        display_price_apple_farm_uppgrade.innerText = "Buy Apple Farm $" + format_apple_display(apple_farm_price)
+        display_apple(apple)
+    }
+    else{
+        alert("Not Even Your Mom's Credit Card Is Enough")
+    }
+}
+function fapple_mine_upgrade() {
+    const display_apple_mine_upgrade_stat = document.getElementById("apple_mine_stat")
+    const display_price_apple_mine_uppgrade = document.getElementById("apple_mine_upgrade")
+    display_apple_mine_upgrade_stat.innerText = "You Have " + apple_mine_upgrade + " " + "Apple Mines"
+    if (apple > apple_mine_price) {
+        apple_mine_upgrade += 1
+        apple -= apple_mine_price
+        apple_mine_price = price_of_upgrade(apple_mine_price,1.05)
+        apple_per_second += 25
+        display_price_apple_mine_uppgrade.innerText = "Buy Apple Mine $" + format_apple_display(apple_mine_price)
+        display_apple(apple)
+    }
+    else{
+        alert("Not Even Your Mom's Credit Card Is Enough")
+    }
+}
+function fapple_bank_upgrade() {
+    const display_apple_bank_upgrade_stat = document.getElementById("apple_bank_stat");
+    const display_price_apple_bank_uppgrade = document.getElementById("apple_bank_upgrade");
+    display_apple_bank_upgrade_stat.innerText = "You Have " + apple_bank_upgrade + " " + "Apple Banks";
+    if (apple > apple_bank_price) {
+        apple_bank_upgrade += 1;
+        apple -= apple_bank_price;
+        apple_bank_price = price_of_upgrade(apple_bank_price, 1.075);
+        apple_per_second += 125;
+        display_price_apple_bank_uppgrade.innerText = "Buy Apple Bank $" + format_apple_display(apple_bank_price);
+        display_apple(apple);
+    } else {
+        alert("Not Even Your Mom's Credit Card Is Enough");
+    }
+}
+function fapple_church_upgrade() {
+    const display_apple_church_upgrade_stat = document.getElementById("apple_church_stat");
+    const display_price_apple_church_uppgrade = document.getElementById("apple_church_upgrade");
+    display_apple_church_upgrade_stat.innerText = "You Have " + apple_church_upgrade + " " + "Apple Churches";
+    if (apple > apple_church_price) {
+        apple_church_upgrade += 1;
+        apple -= apple_church_price;
+        apple_church_price = price_of_upgrade(apple_church_price, 1.075);
+        apple_per_second += 1000;
+        display_price_apple_church_uppgrade.innerText = "Buy Apple Church $" + format_apple_display(apple_church_price);
+        display_apple(apple);
+    } else {
+        alert("Not Even Your Mom's Credit Card Is Enough");
+    }
+}
+function fapple_city_upgrade() {
+    const display_apple_city_upgrade_stat = document.getElementById("apple_city_stat");
+    const display_price_apple_city_uppgrade = document.getElementById("apple_city_upgrade");
+    display_apple_city_upgrade_stat.innerText = "You Have " + apple_city_upgrade + " " + "Apple Cities";
+    if (apple > apple_city_price) {
+        apple_city_upgrade += 1;
+        apple -= apple_city_price;
+        apple_city_price = price_of_upgrade(apple_city_price, 1.075);
+        apple_per_second += 2500;
+        display_price_apple_city_uppgrade.innerText = "Buy Apple City $" + format_apple_display(apple_city_price);
+        display_apple(apple);
+    } else {
+        alert("Not Even Your Mom's Credit Card Is Enough");
+    }
+}
+
+
+setInterval(apple_per_function, 1000)
