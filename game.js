@@ -168,6 +168,10 @@ function fapple_city_upgrade() {
         alert("Not Even Your Mom's Credit Card Is Enough");
     }
 }
-
-
+function gamabling (){
+    window.location.href= "gamabling.html"
+}
+function home(){
+    window.location.href = "index.html"
+}
 setInterval(apple_per_function, 1000)

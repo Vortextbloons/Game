@@ -2,7 +2,11 @@
 body{
     background-color: gray;
 }
+.navbar_buttons{
+    background-color: greenyellow;
+    display: inline;
 
+}
 #apple{
     position: relative;
     display: block;
@@ -35,8 +39,8 @@ body{
 .stats{
     display: inline;
     position: relative;
-    left: 1500px;
-    bottom: 400px;
+    left: 1300px;
+    bottom: 450px;
 
     font-size: 3em;
     text-shadow: 3px 3px 5px lightblue;
