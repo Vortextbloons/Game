@@ -1,9 +1,10 @@
+
+let apple = 0
 let onclick_price = 25
 let apple_bank_price = 125000
 let apple_bank_upgrade = 0
 let onclick_uppgrade = 1
 let apple_tree_price = 250
-let apple = 0
 let apple_tree_upgrade = 0
 let apple_farm_upgrade = 0
 let apple_farm_price = 2500
@@ -15,6 +16,29 @@ let apple_church_upgrade = 0
 let apple_city_price = 10000000
 let apple_city_upgrade = 0
 const display_apple_per_second = document.getElementById("apple_per")
+load_data()
+display_apple(apple)
+function sava_data(){
+    try {
+        sessionStorage.setItem("stored_apple",apple)
+    } catch (error){
+        console.log("Erro")
+    }  
+}
+        
+
+
+function load_data(){
+    let sava_apple = sessionStorage.getItem("stored_apple")
+    if (sava_apple != null){
+        apple = parseInt(sava_apple)
+        display_apple(apple)
+        console.log("Test")
+    }
+    else{
+        console.log("error")
+    }     
+}
 
 function price_of_upgrade(value,muti){
     value = Math.round(value*muti)
@@ -39,13 +63,15 @@ function format_apple_display(apple){
     }
 }
 function display_apple(apple){
-    const display_apple = document.getElementById("Money")
-    display_apple.innerText = "You Have" + " " + format_apple_display(apple) + " " + "Apples"
+    const v_display_apple = document.getElementById("Money")
+    v_display_apple.innerText = "You Have" + " " + format_apple_display(apple) + " " + "Apples"
 }
+
 function apple_per_function() {
-    display_apple_per_second.innerText = "You Get " + format_apple_display(apple_per_second) + " " +"Apple Per Second"
-     
-    apple = apple + apple_per_second
+    apple += apple_per_second
+    console.log('$')
+    display_apple_per_second.innerText = "You Get " + apple_per_second + " " + "Apple's Per Second"
+
     display_apple(apple)
 }
 
@@ -174,4 +200,13 @@ function gamabling (){
 function home(){
     window.location.href = "index.html"
 }
-setInterval(apple_per_function, 1000)
+function sumit_gamabling(event){
+    event.preventDefault()
+    alert("Hello")
+    console.log("test")
+}
+
+setInterval(apple_per_function  , 1000)
+setInterval(sava_data,1000);
+
+display_apple(apple)

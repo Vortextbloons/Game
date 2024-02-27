@@ -72,3 +72,58 @@ h5{
     font-size: 1.75em;
     font-weight: bolder;
 }
+.gam_form{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    height: 100vh;
+}
+.gam_form,form{
+    font-size: 24px;
+    font-family: fantasy;
+    text-align: center;
+    color: gold
+}
+#mutli,input{
+    display: inline;
+    text-align: center;
+    height: 1.75em;
+    
+}
+#mutli,label{
+    font-size: 1.25em;
+    padding: none;
+    
+}
+#mutli,select{
+    
+    height: 2.5em;
+    width: 10em;
+
+    
+}
+#form_submit{
+    height: 50px;
+    width: 16%;
+    background-color: greenyellow;
+
+}
+#form_submit:hover{
+    
+    background-color: gold;
+    size: 1.35em;
+    font-size: 1.35em;
+    color: black;
+}
+.gam_info{
+    font-size: 2em;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 5px 5px 5px greenyellow,-5px -5px 5px goldenrod;    
+}
+#gam_number{
+    text-align: center;
+    text-shadow: none;
+    color: lime
+}
