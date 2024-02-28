@@ -1,42 +1,49 @@
-
-body{
+body {
     background-color: gray;
 }
-.navbar_buttons{
+
+.navbar_buttons {
     background-color: greenyellow;
     display: inline;
 
 }
-#apple{
+
+#apple {
     position: relative;
     display: block;
     margin: auto;
     width: 20%;
     top: -1000px;
-    overflow:auto;
+    overflow: auto;
     padding: none;
 }
-#Money{
+
+#Money {
     text-align: center;
     font-size: 4.5em;
-    text-shadow: 3px 3px 5px lightcoral,-3px -3px 5px lightgoldenrodyellow;
+    text-shadow: 3px 3px 5px lightcoral, -3px -3px 5px lightgoldenrodyellow;
     margin: 0px;
 }
-.upg,button{
+
+.upg,
+button {
     color: black;
     size: 1em;
     display: inline;
     height: 3em;
     font-size: 1.3em;
     background-color: #fbff00b6;
-    transition: background-color 1s ease,1s ease
+    transition: background-color 1s ease, 1s ease
 }
-.head,h3{
+
+.head,
+h3 {
     font-size: 4em;
-    text-shadow: 3px 3px 4px greenyellow,-3px -3px 5px white;
+    text-shadow: 3px 3px 4px greenyellow, -3px -3px 5px white;
     margin-bottom: 0px;
 }
-.stats{
+
+.stats {
     display: inline;
     position: relative;
     left: 1300px;
@@ -47,82 +54,98 @@ body{
     list-style: none;
     padding: none;
     border: none;
-    
+
 }
-.inner_stats, li{
-    
+
+.inner_stats,
+li {
+
     display: block;
     font-size: .75em;
     position: relative;
     left: -40px;
     white-space: nowrap;
 }
-h5{
+
+h5 {
     text-align: center;
     font-size: 2em;
     position: relative;
     padding: 0px;
     margin: 0px;
-    text-shadow: 3px 3px 5px gold,-4px -4px 5px white;
+    text-shadow: 3px 3px 5px gold, -4px -4px 5px white;
 }
 
-.upg:hover{
+.upg:hover {
     background-color: rgb(224, 47, 255);
     color: white;
     font-size: 1.75em;
     font-weight: bolder;
 }
-.gam_form{
+
+.gam_form {
     display: flex;
     justify-content: center;
     justify-items: center;
     align-items: center;
     height: 100vh;
 }
-.gam_form,form{
+
+.gam_form,
+form {
     font-size: 24px;
     font-family: fantasy;
     text-align: center;
     color: gold
 }
-#mutli,input{
+
+#mutli,
+input {
     display: inline;
     text-align: center;
     height: 1.75em;
-    
+
 }
-#mutli,label{
+
+#mutli,
+label {
     font-size: 1.25em;
     padding: none;
-    
+
 }
-#mutli,select{
-    
+
+#mutli,
+select {
+
     height: 2.5em;
     width: 10em;
 
-    
+
 }
-#form_submit{
+
+#form_submit {
     height: 50px;
     width: 16%;
     background-color: greenyellow;
 
 }
-#form_submit:hover{
-    
+
+#form_submit:hover {
+
     background-color: gold;
     size: 1.35em;
     font-size: 1.35em;
     color: black;
 }
-.gam_info{
+
+.gam_info {
     font-size: 2em;
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-shadow: 5px 5px 5px greenyellow,-5px -5px 5px goldenrod;    
+    text-shadow: 5px 5px 5px greenyellow, -5px -5px 5px goldenrod;
 }
-#gam_number{
+
+#gam_number {
     text-align: center;
     text-shadow: none;
     color: lime

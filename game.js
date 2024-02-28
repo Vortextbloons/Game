@@ -1,4 +1,3 @@
-
 let apple = 0
 let onclick_price = 25
 let apple_bank_price = 125000
@@ -18,58 +17,92 @@ let apple_city_upgrade = 0
 const display_apple_per_second = document.getElementById("apple_per")
 load_data()
 display_apple(apple)
-function sava_data(){
-    try {
-        sessionStorage.setItem("stored_apple",apple)
-    } catch (error){
-        console.log("Erro")
-    }  
-}
-        
+function sava_data() {
+    const value = {
+        "apple": apple,
+        "click": onclick_uppgrade,
+        "click_price": onclick_price,
+        "apple_tree": apple_tree_upgrade,
+        "apple_farm": apple_farm_upgrade,
+        "apple_farm_price": apple_farm_price,
+        "apple_mine": apple_mine_upgrade,
+        "apple_mine_price": apple_mine_price,
+        "apple_bank": apple_bank_upgrade,
+        "apple_bank_price": apple_bank_price,
+        "apple_church": apple_church_upgrade,
+        "apple_church_price": apple_church_price,
+        "apple_city": apple_city_upgrade,
+        "apple_city_price": apple_church_price,
+        "apple_tree_price": apple_tree_price,
 
-
-function load_data(){
-    let sava_apple = sessionStorage.getItem("stored_apple")
-    if (sava_apple != null){
-        apple = parseInt(sava_apple)
-        display_apple(apple)
-        console.log("Test")
     }
-    else{
-        console.log("error")
-    }     
+    for(const key in value) {
+        sessionStorage.setItem("stored_" + key, value[key])
+        
+    }
 }
+function load_data(){
+    const keys = [
+        "click",
+        "apple",
+        "click_price",
+        "apple_tree",
+        "apple_tree_price",
+        "apple_mine",
+        "apple_mine_price",
+        "apple_bank",
+        "apple_bank_price",
+        "apple_church",
+        "apple_church_price",
+        "apple_city",
+        "apple_city_price"
+    ]
+    keys.forEach(key => {
+        const sava_value = sessionStorage.getItem("stored_" + key)
+        if (sava_value != null) {
+            if(key === "apple"){
+                apple = parseInt(sava_value)
+                console.log(sava_value)
+                display_apple(apple)}
+            else{
+                window[key] = sava_value
+            }
+        }
+        else {
+            console.log("test")
+        }
+    })
 
-function price_of_upgrade(value,muti){
-    value = Math.round(value*muti)
+}
+function price_of_upgrade(value, muti) {
+    value = Math.round(value * muti)
     return value
 }
 
-function format_apple_display(apple){
-    if(apple >= 1000000000000){
-        return(apple/1000000000000).toFixed(1) +"Tril"
+function format_apple_display(apple) {
+    if (apple >= 1000000000000) {
+        return (apple / 1000000000000).toFixed(1) + "Tril"
     }
-    else if(apple >= 1000000000){
-        return(apple/1000000000).toFixed(1) +"Bil"
+    else if (apple >= 1000000000) {
+        return (apple / 1000000000).toFixed(1) + "Bil"
     }
-    else if(apple >= 1000000){
-        return(apple/1000000).toFixed(1) +"Mil"
+    else if (apple >= 1000000) {
+        return (apple / 1000000).toFixed(1) + "Mil"
     }
-    else if(apple >= 1000){
-        return (apple/1000).toFixed(1) + "K"
+    else if (apple >= 1000) {
+        return (apple / 1000).toFixed(1) + "K"
     }
-    else{
+    else {
         return apple
     }
 }
-function display_apple(apple){
+function display_apple(apple) {
     const v_display_apple = document.getElementById("Money")
     v_display_apple.innerText = "You Have" + " " + format_apple_display(apple) + " " + "Apples"
 }
 
 function apple_per_function() {
     apple += apple_per_second
-    console.log('$')
     display_apple_per_second.innerText = "You Get " + apple_per_second + " " + "Apple's Per Second"
 
     display_apple(apple)
@@ -78,7 +111,7 @@ function apple_per_function() {
 function onclick_apple() {
 
     apple = apple + onclick_uppgrade
-    display_apple(apple)    
+    display_apple(apple)
 }
 function Fonclick_uppgrade() {
     const display_click_upgrade_stat = document.getElementById("upgrade_stats")
@@ -89,12 +122,12 @@ function Fonclick_uppgrade() {
         console.log(onclick_uppgrade)
         onclick_uppgrade += 1
         apple -= onclick_price
-        onclick_price = price_of_upgrade(onclick_price,1.025)
+        onclick_price = price_of_upgrade(onclick_price, 1.025)
         display_apple(apple)
         display_price_onclick_uppgrade.innerText = "Buy Click Uppgrade $" + format_apple_display(onclick_price)
-     
+
     }
-    else{
+    else {
         alert("Not Even Your Mom's Credit Card Is Enough")
     }
 }
@@ -106,13 +139,13 @@ function fapple_tree_upgrade() {
     if (apple > apple_tree_price) {
         apple_tree_upgrade += 1
         apple -= apple_tree_price
-        apple_tree_price = price_of_upgrade(apple_tree_price,1.025)
+        apple_tree_price = price_of_upgrade(apple_tree_price, 1.025)
         apple_per_second += 1
         display_price_apple_tree_uppgrade.innerText = "Buy Apple Tree $" + format_apple_display(apple_tree_price)
         apple_tree_upgrade += 1
         display_apple(apple)
     }
-    else{
+    else {
         alert("Not Even Your Mom's Credit Card Is Enough")
     }
 }
@@ -124,12 +157,12 @@ function fapple_farm_upgrade() {
     if (apple > apple_farm_price) {
         apple_farm_upgrade += 1
         apple -= apple_farm_price
-        apple_farm_price = price_of_upgrade(apple_farm_price,1.025)
+        apple_farm_price = price_of_upgrade(apple_farm_price, 1.025)
         apple_per_second += 5
         display_price_apple_farm_uppgrade.innerText = "Buy Apple Farm $" + format_apple_display(apple_farm_price)
         display_apple(apple)
     }
-    else{
+    else {
         alert("Not Even Your Mom's Credit Card Is Enough")
     }
 }
@@ -140,12 +173,12 @@ function fapple_mine_upgrade() {
     if (apple > apple_mine_price) {
         apple_mine_upgrade += 1
         apple -= apple_mine_price
-        apple_mine_price = price_of_upgrade(apple_mine_price,1.025)
+        apple_mine_price = price_of_upgrade(apple_mine_price, 1.025)
         apple_per_second += 25
         display_price_apple_mine_uppgrade.innerText = "Buy Apple Mine $" + format_apple_display(apple_mine_price)
         display_apple(apple)
     }
-    else{
+    else {
         alert("Not Even Your Mom's Credit Card Is Enough")
     }
 }
@@ -194,19 +227,19 @@ function fapple_city_upgrade() {
         alert("Not Even Your Mom's Credit Card Is Enough");
     }
 }
-function gamabling (){
-    window.location.href= "gamabling.html"
+function gamabling() {
+    window.location.href = "gamabling.html"
 }
-function home(){
+function home() {
     window.location.href = "index.html"
 }
-function sumit_gamabling(event){
+function sumit_gamabling(event) {
     event.preventDefault()
     alert("Hello")
     console.log("test")
 }
 
-setInterval(apple_per_function  , 1000)
-setInterval(sava_data,1000);
+setInterval(apple_per_function, 1000)
+setInterval(sava_data, 1000);
 
 display_apple(apple)
