@@ -1,5 +1,5 @@
-var sound = new Audio("New folder/short-success-sound-glockenspiel-treasure-video-game-6346.mp3"
-)
+var sound = new Audio("New folder/short-success-sound-glockenspiel-treasure-video-game-6346.mp3")
+var apple_sound = new Audio('New folder/mouse-click-153941.mp3')
 let apple = 0
 let onclick_price = 25
 let apple_bank_price = 125000
@@ -21,7 +21,6 @@ const display_apple_per_second = document.getElementById("apple_per")
 function sava_data(){
  
     sessionStorage.setItem("sapple", apple)
-
 }
 function load_data(){
     let sava_value = sessionStorage.getItem("sapple")
@@ -35,9 +34,7 @@ function load_data(){
     }
 }
 display_apple(apple)
-function Buy_anamtion(element_name){
-    element_name.style.color = 'Green'
-}
+
 function price_of_upgrade(value, muti) {
     value = Math.round(value * muti)
     return value
@@ -73,10 +70,11 @@ function apple_per_function() {
 }
 
 function onclick_apple() {
-
+  
+    apple_sound.play()
     apple = apple + onclick_uppgrade
     display_apple(apple)
-    sound.play
+    apple_sound.play(stop)
 }
 function Fonclick_uppgrade() {
     const display_click_upgrade_stat = document.getElementById("upgrade_stats")
@@ -90,7 +88,8 @@ function Fonclick_uppgrade() {
         onclick_price = price_of_upgrade(onclick_price, 1.025)
         display_apple(apple)
         display_price_onclick_uppgrade.innerText = "Buy Click Uppgrade $" + format_apple_display(onclick_price)
-        Buy_anamtion(display_click_upgrade_stat)
+        sound.play()
+        
     }
     else {
         alert("Not Even Your Mom's Credit Card Is Enough")
@@ -125,6 +124,7 @@ function fapple_farm_upgrade() {
         apple_farm_price = price_of_upgrade(apple_farm_price, 1.025)
         apple_per_second += 5
         display_price_apple_farm_uppgrade.innerText = "Buy Apple Farm $" + format_apple_display(apple_farm_price)
+        sound.play()
         display_apple(apple)
     }
     else {
@@ -141,6 +141,7 @@ function fapple_mine_upgrade() {
         apple_mine_price = price_of_upgrade(apple_mine_price, 1.025)
         apple_per_second += 25
         display_price_apple_mine_uppgrade.innerText = "Buy Apple Mine $" + format_apple_display(apple_mine_price)
+        sound.play()
         display_apple(apple)
     }
     else {
@@ -157,6 +158,7 @@ function fapple_bank_upgrade() {
         apple_bank_price = price_of_upgrade(apple_bank_price, 1.025);
         apple_per_second += 125;
         display_price_apple_bank_uppgrade.innerText = "Buy Apple Bank $" + format_apple_display(apple_bank_price);
+        sound.play()
         display_apple(apple);
     } else {
         alert("Not Even Your Mom's Credit Card Is Enough");
@@ -172,6 +174,7 @@ function fapple_church_upgrade() {
         apple_church_price = price_of_upgrade(apple_church_price, 1.025);
         apple_per_second += 1000;
         display_price_apple_church_uppgrade.innerText = "Buy Apple Church $" + format_apple_display(apple_church_price);
+        sound.play()
         display_apple(apple);
     } else {
         alert("Not Even Your Mom's Credit Card Is Enough");
@@ -187,6 +190,7 @@ function fapple_city_upgrade() {
         apple_city_price = price_of_upgrade(apple_city_price, 1.025);
         apple_per_second += 2500;
         display_price_apple_city_uppgrade.innerText = "Buy Apple City $" + format_apple_display(apple_city_price);
+        sound.play()
         display_apple(apple);
     } else {
         alert("Not Even Your Mom's Credit Card Is Enough");
@@ -198,11 +202,7 @@ function gamabling() {
 function home() {
     window.location.href = "index.html"
 }
-function sumit_gamabling(event) {
-    event.preventDefault()
-    alert("Hello")
-    console.log("test")
-}
+
 
 setInterval(apple_per_function, 1000)
 setInterval(sava_data, 1000);
