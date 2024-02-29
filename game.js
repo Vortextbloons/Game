@@ -1,5 +1,6 @@
-
-let apple = 1
+var sound = new Audio("New folder/short-success-sound-glockenspiel-treasure-video-game-6346.mp3"
+)
+let apple = 0
 let onclick_price = 25
 let apple_bank_price = 125000
 let apple_bank_upgrade = 0
@@ -16,19 +17,21 @@ let apple_church_upgrade = 0
 let apple_city_price = 10000000
 let apple_city_upgrade = 0
 const display_apple_per_second = document.getElementById("apple_per")
-load_data()
+
 function sava_data(){
+ 
     sessionStorage.setItem("sapple", apple)
 
 }
 function load_data(){
     let sava_value = sessionStorage.getItem("sapple")
-    if(!isNaN(sava_value)){
-        apple = parseInt(sava_value)
+    if(sava_value != null ){
+        apple = parseInt(sava_value)    
         console.log(sava_value)
     }
     else{
         console.error("erro");
+        
     }
 }
 display_apple(apple)
@@ -73,6 +76,7 @@ function onclick_apple() {
 
     apple = apple + onclick_uppgrade
     display_apple(apple)
+    sound.play
 }
 function Fonclick_uppgrade() {
     const display_click_upgrade_stat = document.getElementById("upgrade_stats")
@@ -201,6 +205,6 @@ function sumit_gamabling(event) {
 }
 
 setInterval(apple_per_function, 1000)
-/setInterval(sava_data, 1000);
-
+setInterval(sava_data, 1000);
+load_data()
 display_apple(apple)
