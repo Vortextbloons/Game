@@ -18,18 +18,18 @@ let apple_city_price = 10000000
 let apple_city_upgrade = 0
 const display_apple_per_second = document.getElementById("apple_per")
 
-function sava_data(){
+function sava_data() {
     sessionStorage.setItem("sapple", apple)
 }
-function load_data(){
+function load_data() {
     let sava_value = sessionStorage.getItem("sapple")
-    if(sava_value != null ){
-        apple = parseInt(sava_value)    
+    if (sava_value != null) {
+        apple = parseInt(sava_value)
         console.log(sava_value)
     }
-    else{
+    else {
         console.error("erro");
-        
+
     }
 }
 display_apple(apple)
@@ -69,7 +69,7 @@ function apple_per_function() {
 }
 
 function onclick_apple() {
-  
+
     apple_sound.play()
     apple = apple + onclick_uppgrade
     display_apple(apple)
@@ -88,7 +88,7 @@ function Fonclick_uppgrade() {
         display_apple(apple)
         display_price_onclick_uppgrade.innerText = "Buy Click Uppgrade $" + format_apple_display(onclick_price)
         sound.play()
-        
+
     }
     else {
         alert("Not Even Your Mom's Credit Card Is Enough")
@@ -202,23 +202,23 @@ function home() {
     window.location.href = "index.html"
 }
 
-function ruin_the_fun(){
-    let apple = 0
- onclick_price = 25
-let apple_bank_price = 125000
-let apple_bank_upgrade = 0
-let onclick_uppgrade = 1
-let apple_tree_price = 250
-let apple_tree_upgrade = 0
-let apple_farm_upgrade = 0
-let apple_farm_price = 2500
-let apple_mine_price = 13500
-let apple_mine_upgrade = 0
-let apple_per_second = 0
-let apple_church_price = 1000000
-let apple_church_upgrade = 0
-let apple_city_price = 10000000
-let apple_city_upgrade = 0
+function ruin_the_fun() {
+    apple = 100000000000000000
+    onclick_price = 0
+    apple_bank_price = 0
+    apple_bank_upgrade = 0
+    onclick_uppgrade = 1000000000000
+    apple_tree_price = 0
+    apple_tree_upgrade = 0
+    apple_farm_upgrade = 0
+    apple_farm_price = 0
+    apple_mine_price = 0
+    apple_mine_upgrade = 0
+    apple_per_second = 10000000000000000000000
+    apple_church_price = 0
+    apple_church_upgrade = 0
+    apple_city_price = 0
+    apple_city_upgrade = 0
 }
 setInterval(apple_per_function, 1000)
 setInterval(sava_data, 1000);
