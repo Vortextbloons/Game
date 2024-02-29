@@ -19,7 +19,6 @@ let apple_city_upgrade = 0
 const display_apple_per_second = document.getElementById("apple_per")
 
 function sava_data(){
- 
     sessionStorage.setItem("sapple", apple)
 }
 function load_data(){
@@ -203,7 +202,24 @@ function home() {
     window.location.href = "index.html"
 }
 
-
+function ruin_the_fun(){
+    let apple = 0
+ onclick_price = 25
+let apple_bank_price = 125000
+let apple_bank_upgrade = 0
+let onclick_uppgrade = 1
+let apple_tree_price = 250
+let apple_tree_upgrade = 0
+let apple_farm_upgrade = 0
+let apple_farm_price = 2500
+let apple_mine_price = 13500
+let apple_mine_upgrade = 0
+let apple_per_second = 0
+let apple_church_price = 1000000
+let apple_church_upgrade = 0
+let apple_city_price = 10000000
+let apple_city_upgrade = 0
+}
 setInterval(apple_per_function, 1000)
 setInterval(sava_data, 1000);
 load_data()
