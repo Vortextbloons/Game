@@ -203,6 +203,7 @@ function home() {
 }
 
 function ruin_the_fun() {
+    console.error("You Know What You Did")
     apple = 100000000000000000
     onclick_price = 0
     apple_bank_price = 0
