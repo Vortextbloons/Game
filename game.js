@@ -1,4 +1,5 @@
-let apple = 0
+
+let apple = 1
 let onclick_price = 25
 let apple_bank_price = 125000
 let apple_bank_upgrade = 0
@@ -16,63 +17,23 @@ let apple_city_price = 10000000
 let apple_city_upgrade = 0
 const display_apple_per_second = document.getElementById("apple_per")
 load_data()
-display_apple(apple)
-function sava_data() {
-    const value = {
-        "apple": apple,
-        "click": onclick_uppgrade,
-        "click_price": onclick_price,
-        "apple_tree": apple_tree_upgrade,
-        "apple_farm": apple_farm_upgrade,
-        "apple_farm_price": apple_farm_price,
-        "apple_mine": apple_mine_upgrade,
-        "apple_mine_price": apple_mine_price,
-        "apple_bank": apple_bank_upgrade,
-        "apple_bank_price": apple_bank_price,
-        "apple_church": apple_church_upgrade,
-        "apple_church_price": apple_church_price,
-        "apple_city": apple_city_upgrade,
-        "apple_city_price": apple_church_price,
-        "apple_tree_price": apple_tree_price,
+function sava_data(){
+    sessionStorage.setItem("sapple", apple)
 
-    }
-    for(const key in value) {
-        sessionStorage.setItem("stored_" + key, value[key])
-        
-    }
 }
 function load_data(){
-    const keys = [
-        "click",
-        "apple",
-        "click_price",
-        "apple_tree",
-        "apple_tree_price",
-        "apple_mine",
-        "apple_mine_price",
-        "apple_bank",
-        "apple_bank_price",
-        "apple_church",
-        "apple_church_price",
-        "apple_city",
-        "apple_city_price"
-    ]
-    keys.forEach(key => {
-        const sava_value = sessionStorage.getItem("stored_" + key)
-        if (sava_value != null) {
-            if(key === "apple"){
-                apple = parseInt(sava_value)
-                console.log(sava_value)
-                display_apple(apple)}
-            else{
-                window[key] = sava_value
-            }
-        }
-        else {
-            console.log("test")
-        }
-    })
-
+    let sava_value = sessionStorage.getItem("sapple")
+    if(!isNaN(sava_value)){
+        apple = parseInt(sava_value)
+        console.log(sava_value)
+    }
+    else{
+        console.error("erro");
+    }
+}
+display_apple(apple)
+function Buy_anamtion(element_name){
+    element_name.style.color = 'Green'
 }
 function price_of_upgrade(value, muti) {
     value = Math.round(value * muti)
@@ -125,7 +86,7 @@ function Fonclick_uppgrade() {
         onclick_price = price_of_upgrade(onclick_price, 1.025)
         display_apple(apple)
         display_price_onclick_uppgrade.innerText = "Buy Click Uppgrade $" + format_apple_display(onclick_price)
-
+        Buy_anamtion(display_click_upgrade_stat)
     }
     else {
         alert("Not Even Your Mom's Credit Card Is Enough")
@@ -240,6 +201,6 @@ function sumit_gamabling(event) {
 }
 
 setInterval(apple_per_function, 1000)
-setInterval(sava_data, 1000);
+/setInterval(sava_data, 1000);
 
 display_apple(apple)
